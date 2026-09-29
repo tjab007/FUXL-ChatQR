@@ -14,8 +14,8 @@
 <title>FUXLShop – QR Scanner & Generator</title>
 <script src="https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.0.3/qrcode.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.2/jspdf.umd.min.js"></script>
 <script src="https://unpkg.com/peerjs@1.5.4/dist/peerjs.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.6/dist/JsBarcode.all.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
 <style>
 :root{
@@ -123,8 +123,8 @@ nav button.active{color:var(--accent);background:var(--soft)}
 .promo-banner .promo-text b{display:block;font-size:14.5px;margin-bottom:2px}
 .promo-banner button{background:rgba(255,255,255,.18);border:0;color:#fff;border-radius:10px;padding:6px 10px;font-size:16px;flex:none}
 
-.chat-page{padding-bottom:110px}.chat-shell{max-width:760px;margin:auto;padding:18px}.chat-top{display:flex;align-items:center;gap:10px;margin-bottom:14px}.chat-id-card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:14px;margin-bottom:12px}.chat-id-row{display:flex;gap:8px;align-items:center}.chat-id-row input{flex:1;font-weight:800}.chat-status{font-size:12px;color:var(--muted);margin-top:6px}.online-dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:5px;background:#9ca3af}.online-dot.on{background:#22c55e}.online-dot.off{background:#9ca3af}.chat-target-row{display:grid;grid-template-columns:1fr auto;gap:8px}.chat-list{display:flex;flex-direction:column;gap:8px;margin:14px 0;min-height:220px;max-height:48vh;overflow:auto;padding:4px}.chat-empty{text-align:center;color:var(--muted);padding:60px 18px}.bubble{max-width:78%;padding:8px 12px;border-radius:12px;font-size:14.5px;line-height:1.35;word-break:break-word;box-shadow:0 1px 1px rgba(0,0,0,.08)}.bubble.me{align-self:flex-end;background:#dcf8c6;color:#111827;border-bottom-right-radius:3px}.bubble.them{align-self:flex-start;background:#fff;color:#111827;border:1px solid var(--line);border-bottom-left-radius:3px}@media(prefers-color-scheme:dark){.bubble.me{background:#025c4c;color:#fff}.bubble.them{background:#1f2937;color:#fff;border-color:#2c3543}}.bubble-time{display:block;font-size:10px;opacity:.6;margin-top:3px;text-align:right}.chat-header-bar{position:sticky;top:0;z-index:5;background:var(--card);padding:10px 6px;border-bottom:1px solid var(--line);border-radius:14px 14px 0 0;display:flex;align-items:center;gap:10px}.avatar-circle{width:40px;height:40px;flex:none;border-radius:50%;background:linear-gradient(135deg,#2563eb,#7c3aed);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:16px}.chat-list{background:repeating-linear-gradient(0deg,var(--bg),var(--bg) 40px);border-radius:0 0 14px 14px}.chat-compose{display:grid;grid-template-columns:auto 1fr auto;gap:8px;align-items:center;position:sticky;bottom:0;background:var(--bg);padding:10px 0 calc(8px + env(safe-area-inset-bottom))}.chat-compose input{border-radius:999px}.chat-actions{display:flex;gap:8px;flex-wrap:wrap}.chat-call-btn{min-width:50px}.call-overlay{position:fixed;inset:0;background:rgba(3,7,18,.92);z-index:120;display:none;align-items:center;justify-content:center;padding:18px}.call-overlay.show{display:flex}.call-box{width:min(900px,100%);background:#101827;color:#fff;border-radius:26px;padding:14px;box-shadow:0 25px 80px rgba(0,0,0,.5)}.call-head{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:10px}.video-stage{position:relative;background:#000;border-radius:18px;overflow:hidden;aspect-ratio:16/10;display:grid;place-items:center}.video-stage video{width:100%;height:100%;object-fit:cover}.video-local{position:absolute;right:10px;bottom:10px;width:28%;max-width:180px;aspect-ratio:4/3;border:2px solid rgba(255,255,255,.7);border-radius:12px;overflow:hidden;background:#111}.video-local video{object-fit:cover}.call-controls{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:12px}.call-controls button{border:0;border-radius:999px;padding:12px 15px;font-weight:800}.call-danger{background:#dc2626;color:#fff}.call-accept{background:#16a34a;color:#fff}.incoming-card{text-align:center;padding:28px 15px}.incoming-icon{font-size:48px}.translate-card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:14px;margin-top:12px}.translate-tools{display:flex;gap:8px;flex-wrap:wrap}.translate-tools button{flex:1;min-width:130px}.translate-row{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}.translate-row select,.translate-card textarea{width:100%;padding:10px;border:1px solid var(--line);border-radius:12px;background:var(--card);color:var(--ink)}.translate-result{margin-top:10px;padding:12px;border-radius:12px;background:var(--soft);white-space:pre-wrap;word-break:break-word;min-height:70px}.translate-status{font-size:12px;color:var(--muted);margin-top:7px}.remote-avatar{background-size:cover;background-position:center}.fuxl-shop-link{margin-left:auto;display:flex;align-items:center;gap:8px;text-decoration:none;color:inherit;font-weight:800}.fuxl-shop-link img{width:38px;height:38px;border-radius:12px;object-fit:cover}.profile-preview{width:72px;height:72px;border-radius:50%;object-fit:cover;border:2px solid var(--line)}@media(max-width:620px){.translate-row{grid-template-columns:1fr}}.pdf-edit-card{background:#fff;color:#111827;border-radius:12px;padding:8px}.pdf-edit-card img{width:100%;display:block;max-height:280px;object-fit:contain;background:#f3f4f6;border-radius:8px}
-@media(max-width:620px){.chat-target-row{grid-template-columns:1fr}.chat-compose{grid-template-columns:auto 1fr auto}.bubble{max-width:86%}}
+.chat-page{padding-bottom:110px}.chat-shell{max-width:760px;margin:auto;padding:18px}.chat-top{display:flex;align-items:center;gap:10px;margin-bottom:14px}.chat-id-card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:14px;margin-bottom:12px}.chat-id-row{display:flex;gap:8px;align-items:center}.chat-id-row input{flex:1;font-weight:800}.chat-status{font-size:12px;color:var(--muted);margin-top:6px}.online-dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:5px;background:#9ca3af}.online-dot.on{background:#22c55e}.online-dot.off{background:#9ca3af}.chat-target-row{display:grid;grid-template-columns:1fr auto;gap:8px}.chat-list{display:flex;flex-direction:column;gap:8px;margin:14px 0;min-height:220px;max-height:48vh;overflow:auto;padding:4px}.chat-empty{text-align:center;color:var(--muted);padding:60px 18px}.bubble{max-width:78%;padding:8px 12px;border-radius:12px;font-size:14.5px;line-height:1.35;word-break:break-word;box-shadow:0 1px 1px rgba(0,0,0,.08)}.bubble.me{align-self:flex-end;background:#dcf8c6;color:#111827;border-bottom-right-radius:3px}.bubble.them{align-self:flex-start;background:#fff;color:#111827;border:1px solid var(--line);border-bottom-left-radius:3px}@media(prefers-color-scheme:dark){.bubble.me{background:#025c4c;color:#fff}.bubble.them{background:#1f2937;color:#fff;border-color:#2c3543}}.bubble-time{display:block;font-size:10px;opacity:.6;margin-top:3px;text-align:right}.chat-header-bar{position:sticky;top:0;z-index:5;background:var(--card);padding:10px 6px;border-bottom:1px solid var(--line);border-radius:14px 14px 0 0;display:flex;align-items:center;gap:10px}.avatar-circle{width:40px;height:40px;flex:none;border-radius:50%;background:linear-gradient(135deg,#2563eb,#7c3aed);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:16px}.chat-list{background:repeating-linear-gradient(0deg,var(--bg),var(--bg) 40px);border-radius:0 0 14px 14px}.chat-compose{display:flex;flex-direction:column;gap:7px;position:sticky;bottom:0;background:var(--bg);padding:10px 0 calc(8px + env(safe-area-inset-bottom))}.chat-compose-tools{display:flex;gap:8px;align-items:center}.chat-compose-main{display:flex;gap:8px;align-items:center;width:100%}.chat-compose-main input{flex:1;border-radius:999px}.chat-compose-main .send-btn{min-width:52px}.chat-compose input{border-radius:999px}.barcode-preview{display:flex;justify-content:center;align-items:center;min-height:110px;padding:12px;background:#fff;border-radius:14px;margin-top:10px}.barcode-preview svg{max-width:100%;height:auto}.chat-actions{display:flex;gap:8px;flex-wrap:wrap}.chat-call-btn{min-width:50px}.call-overlay{position:fixed;inset:0;background:rgba(3,7,18,.92);z-index:120;display:none;align-items:center;justify-content:center;padding:18px}.call-overlay.show{display:flex}.call-box{width:min(900px,100%);background:#101827;color:#fff;border-radius:26px;padding:14px;box-shadow:0 25px 80px rgba(0,0,0,.5)}.call-head{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:10px}.video-stage{position:relative;background:#000;border-radius:18px;overflow:hidden;aspect-ratio:16/10;display:grid;place-items:center}.video-stage video{width:100%;height:100%;object-fit:cover}.video-local{position:absolute;right:10px;bottom:10px;width:28%;max-width:180px;aspect-ratio:4/3;border:2px solid rgba(255,255,255,.7);border-radius:12px;overflow:hidden;background:#111}.video-local video{object-fit:cover}.call-controls{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:12px}.call-controls button{border:0;border-radius:999px;padding:12px 15px;font-weight:800}.call-danger{background:#dc2626;color:#fff}.call-accept{background:#16a34a;color:#fff}.incoming-card{text-align:center;padding:28px 15px}.incoming-icon{font-size:48px}.translate-card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:14px;margin-top:12px}.translate-tools{display:flex;gap:8px;flex-wrap:wrap}.translate-tools button{flex:1;min-width:130px}.translate-row{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}.translate-row select,.translate-card textarea{width:100%;padding:10px;border:1px solid var(--line);border-radius:12px;background:var(--card);color:var(--ink)}.translate-result{margin-top:10px;padding:12px;border-radius:12px;background:var(--soft);white-space:pre-wrap;word-break:break-word;min-height:70px}.translate-status{font-size:12px;color:var(--muted);margin-top:7px}.remote-avatar{background-size:cover;background-position:center}.fuxl-shop-link{margin-left:auto;display:flex;align-items:center;gap:8px;text-decoration:none;color:inherit;font-weight:800}.fuxl-shop-link img{width:38px;height:38px;border-radius:12px;object-fit:cover}.profile-preview{width:72px;height:72px;border-radius:50%;object-fit:cover;border:2px solid var(--line)}@media(max-width:620px){.translate-row{grid-template-columns:1fr}}.pdf-edit-card{background:#fff;color:#111827;border-radius:12px;padding:8px}.pdf-edit-card img{width:100%;display:block;max-height:280px;object-fit:contain;background:#f3f4f6;border-radius:8px}
+@media(max-width:620px){.chat-target-row{grid-template-columns:1fr}.bubble{max-width:86%}}
 </style>
 </head>
 <body>
@@ -165,45 +165,16 @@ nav button.active{color:var(--accent);background:var(--soft)}
           <span class="badge" id="ocrStatus">Bereit</span>
         </div>
         <textarea id="ocrResultText" rows="7" style="width:100%;margin-top:10px;border:1px solid var(--line);border-radius:14px;padding:12px;background:var(--card);color:var(--ink)" placeholder="Der erkannte Text erscheint hier…"></textarea>
-        <div class="row" style="margin-top:10px">
-          <button class="btn secondary" id="ocrCopyBtn">📋 Kopieren</button>
-          <button class="btn primary" id="ocrTranslateBtn">🌍 Übersetzen</button>
+        <div class="translate-row" style="margin-top:10px">
+          <div><label class="hint">Übersetzen nach</label><select id="ocrTranslateTarget"></select></div>
+          <div style="display:flex;align-items:flex-end"><button class="btn primary" id="ocrTranslateBtn" style="width:100%">🌍 Foto-Text übersetzen</button></div>
         </div>
+        <div class="row" style="margin-top:10px">
+          <button class="btn secondary" id="ocrCopyBtn">📋 Text kopieren</button>
+        </div>
+        <div class="translate-result hidden" id="ocrTranslationResult">Die Übersetzung erscheint hier.</div>
       </div>
 
-      <div style="border-top:1px solid rgba(255,255,255,.12);margin:22px 0 16px"></div>
-      <h3 style="font-size:16px;margin-bottom:4px">📄 Foto → PDF</h3>
-      <p class="hint" style="margin:0 0 12px">Mehrere Seiten fotografieren, prüfen und anschließend als eine PDF-Datei speichern oder teilen.</p>
-      <div class="camera-actions">
-        <button class="btn secondary" id="pdfPhotoBtn">📸 Seite fotografieren</button>
-        <button class="btn secondary" id="pdfGalleryBtn">🖼️ Bilder auswählen</button>
-        <button class="btn secondary" id="pdfFileBtn">📁 Datei laden</button>
-      </div>
-      <div id="pdfPages" class="pdf-pages" style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:12px"></div>
-      <div class="camera-actions" style="margin-top:10px">
-        <button class="btn secondary hidden" id="pdfClear">🗑️ Seiten löschen</button>
-        <button class="btn primary hidden" id="pdfMake">📄 PDF erstellen</button>
-      </div>
-      <div class="hidden" id="pdfResult" style="margin-top:12px">
-        <div class="camera-actions">
-          <button class="btn secondary" id="pdfEdit">✏️ PDF bearbeiten</button>
-          <button class="btn secondary" id="pdfDownload">⬇️ PDF speichern</button>
-          <button class="btn primary" id="pdfShare">↥ PDF teilen</button>
-        </div>
-        <p class="hint" style="margin:8px 0 0">Bearbeiten öffnet die Seiten wieder. Du kannst Seiten drehen, löschen, neu sortieren und weitere Bilder hinzufügen und danach die PDF neu erstellen.</p>
-      </div>
-      <div class="hidden" id="pdfEditor" style="margin-top:12px">
-        <div style="border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:12px;background:rgba(255,255,255,.04)">
-          <div style="display:flex;justify-content:space-between;gap:8px;align-items:center;margin-bottom:10px">
-            <strong>✏️ PDF bearbeiten</strong>
-            <button class="btn secondary" id="pdfEditorClose">Schließen</button>
-          </div>
-          <div id="pdfEditorPages" style="display:grid;gap:10px"></div>
-        </div>
-      </div>
-      <input class="hidden" type="file" id="pdfPhotoInput" accept="image/*" capture="environment">
-      <input class="hidden" type="file" id="pdfGalleryInput" accept="image/*" multiple>
-      <input class="hidden" type="file" id="pdfFileInput" accept="image/*,.jpg,.jpeg,.png,.webp,.heic,.heif" multiple>
     </div>
   </div>
 </section>
@@ -221,6 +192,8 @@ nav button.active{color:var(--accent);background:var(--soft)}
     <div class="top"><div><h1>QR erstellen</h1><div class="sub">In wenigen Sekunden einen QR-Code bauen</div></div></div>
     <div class="section"><h2>QR-Code</h2><div class="grid" id="qrGrid"></div></div>
     <div class="section"><h2>Business</h2><div class="sub" style="margin-bottom:12px">Schnelle Vorlagen für häufige Links</div><div class="grid" id="bizGrid"></div></div>
+    <div class="section"><h2>📱 Social Media</h2><div class="sub" style="margin-bottom:12px">QR-Codes für deine sozialen Profile</div><div class="grid" id="socialGrid"></div></div>
+    <div class="section"><h2>🏷️ Barcodes</h2><div class="sub" style="margin-bottom:12px">Gängige Barcode-Formate erstellen</div><div class="grid" id="barcodeGrid"></div></div>
   </div>
 </section>
 
@@ -275,7 +248,8 @@ nav button.active{color:var(--accent);background:var(--soft)}
       </div>
       <input class="hidden" type="file" id="profilePhotoInput" accept="image/*">
       <div class="field" style="margin:0 0 10px"><label>Mein Anzeigename</label><input id="myDisplayName" placeholder="z. B. Max"></div>
-      <div class="badge">Meine FUXLShop-ID</div>
+      <div class="field" style="margin:0 0 10px"><label>Meine Telefonnummer (optional, für eine stabile Kontakt-ID)</label><input id="myPhoneNumber" type="tel" inputmode="tel" autocomplete="tel" placeholder="z. B. +49 170 1234567"></div>
+      <div class="badge">Meine FUXLShop-ID / Kontakt-ID</div>
       <div class="chat-id-row" style="margin-top:8px"><input id="myChatId" readonly value="Verbinde…"><button class="btn secondary" id="copyMyChatId">📋</button></div>
       <div class="chat-status" id="chatConnectionStatus">⏳ Verbinde mit Chat-Dienst…</div>
       <button class="btn secondary hidden" id="chatRetryBtn" style="margin-top:8px">🔄 Erneut verbinden</button>
@@ -283,8 +257,9 @@ nav button.active{color:var(--accent);background:var(--soft)}
       <input class="hidden" type="file" id="contactQrInput" accept="image/*" capture="environment">
     </div>
     <div class="chat-id-card">
-      <div class="field" style="margin:0"><label>FUXLShop-ID des Kontakts (4 Ziffern)</label><div class="chat-target-row"><input id="chatTarget" placeholder="z. B. 4821"><button class="btn primary" id="chatConnect">💬 Chat öffnen</button></div></div>
-      <div class="row" style="margin-top:10px"><button class="btn secondary" id="chatContacts">👤 Telefonkontakt</button><button class="btn secondary" id="chatSaveTarget">⭐ ID speichern</button><button class="btn secondary" id="chatSavedOpen">🔄 Aktualisieren</button></div>
+      <div class="field" style="margin:0"><label>Kontakt-ID oder Telefonnummer</label><div class="chat-target-row"><input id="chatTarget" placeholder="z. B. +49 170 1234567"><button class="btn primary" id="chatConnect">💬 Chat öffnen</button></div></div>
+      <div class="row" style="margin-top:10px;flex-wrap:wrap"><button class="btn secondary" id="chatContacts">👤 Telefonkontakt</button><button class="btn secondary" id="chatVcard">📇 Kontaktkarte</button><button class="btn secondary" id="chatSaveTarget">⭐ Speichern</button><button class="btn secondary" id="chatSavedOpen">🔄 Aktualisieren</button></div>
+      <input class="hidden" type="file" id="contactVcardInput" accept=".vcf,text/vcard,text/x-vcard">
       <div class="row" style="margin-top:8px"><button class="btn primary" id="createGroupBtn">👥 Gruppe erstellen</button></div>
       <div style="font-weight:800;margin:14px 0 4px">👥 Meine Kontakte</div>
       <div id="savedChatList" style="margin-top:4px"></div>
@@ -293,11 +268,15 @@ nav button.active{color:var(--accent);background:var(--soft)}
       <div class="chat-header-bar"><div class="avatar-circle" id="chatAvatar">💬</div><div style="flex:1;min-width:0"><strong id="chatPartnerTitle" style="display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">Kein Chat geöffnet</strong><div class="chat-status" id="chatPartnerStatus">Verbinde eine FUXLShop-ID.</div></div><div class="chat-actions"><button class="btn secondary chat-call-btn" id="voiceCall" disabled title="Sprachanruf">📞</button><button class="btn primary chat-call-btn" id="videoCall" disabled title="Videoanruf">🎥</button></div></div>
       <div id="chatList" class="chat-list"><div class="chat-empty">💬 Öffne einen Kontakt mit seiner FUXLShop-ID.<br><br>Danach kannst du schreiben oder 📞/🎥 anrufen.</div></div>
       <div id="emojiPicker" style="display:none;flex-wrap:wrap;gap:6px;padding:10px;background:var(--card);border:1px solid var(--line);border-radius:14px;margin-bottom:8px;font-size:22px"></div>
-      <div class="chat-compose" style="grid-template-columns:auto auto 1fr auto">
-        <button class="btn secondary" id="chatPhotoBtn" title="Foto senden">📷</button>
-        <button class="btn secondary" id="chatEmojiBtn" title="Emoji">😊</button>
-        <input id="chatMessage" placeholder="Nachricht schreiben…" disabled>
-        <button class="btn primary" id="chatSend" disabled>➤</button>
+      <div class="chat-compose">
+        <div class="chat-compose-tools">
+          <button class="btn secondary" id="chatPhotoBtn" title="Foto senden">📷 Foto</button>
+          <button class="btn secondary" id="chatEmojiBtn" title="Emoji">😊 Emoji</button>
+        </div>
+        <div class="chat-compose-main">
+          <input id="chatMessage" placeholder="Nachricht schreiben…" disabled>
+          <button class="btn primary send-btn" id="chatSend" disabled>➤ Senden</button>
+        </div>
       </div>
       <input class="hidden" type="file" id="chatPhotoInput" accept="image/*" capture="environment">
       <div class="translate-card">
@@ -314,7 +293,7 @@ nav button.active{color:var(--accent);background:var(--soft)}
           <div><label class="hint">Übersetzen nach</label><select id="translateTo"><option value="de">Deutsch</option><option value="en">English</option><option value="fr">Français</option><option value="es">Español</option><option value="it">Italiano</option><option value="pt">Português</option><option value="nl">Nederlands</option><option value="pl">Polski</option><option value="tr">Türkçe</option><option value="ar">العربية</option><option value="uk">Українська</option><option value="ru">Русский</option><option value="zh">中文</option><option value="ja">日本語</option><option value="ko">한국어</option></select></div>
         </div>
         <textarea id="translateInput" rows="3" placeholder="Text für die Übersetzung…"></textarea>
-        <div class="translate-tools" style="margin-top:8px"><button class="btn primary" id="translateRunBtn">🌍 Übersetzen</button><button class="btn secondary" id="translateUseChatBtn">➤ Ergebnis in Chat</button></div>
+        <div class="translate-tools" style="margin-top:8px"><button class="btn primary" id="translateRunBtn">🌍 Übersetzen</button></div>
         <div class="translate-status" id="translateStatus">Bereit.</div>
         <div class="translate-result" id="translateResult">Noch keine Übersetzung.</div>
       </div>
@@ -436,31 +415,6 @@ $('#historySearch').oninput=renderHistory;
 $('#clearHistory').onclick=()=>{
   if(confirm('Gesamten Verlauf löschen?')){saveHistory([]); renderHistory(); renderFav(); toast('Verlauf gelöscht');}
 };
-function rotatePdfPage(index){
-  const p=pdfPages[index]; if(!p)return;
-  const img=new Image(); img.onload=()=>{
-    const c=document.createElement('canvas'); c.width=img.height; c.height=img.width;
-    const cctx=c.getContext('2d'); cctx.translate(c.width/2,c.height/2); cctx.rotate(Math.PI/2); cctx.drawImage(img,-img.width/2,-img.height/2);
-    p.data=c.toDataURL('image/jpeg',0.9); p.width=c.width; p.height=c.height; p.rotation=(p.rotation||0)+90;
-    renderPdfPages(); renderPdfEditor(); pdfBlob=null; $('#pdfResult').classList.add('hidden');
-    toast('Seite gedreht ✓');
-  }; img.src=p.data;
-}
-function movePdfPage(index,delta){
-  const ni=index+delta; if(ni<0||ni>=pdfPages.length)return;
-  const [p]=pdfPages.splice(index,1); pdfPages.splice(ni,0,p); renderPdfPages(); renderPdfEditor(); pdfBlob=null; $('#pdfResult').classList.add('hidden');
-}
-function renderPdfEditor(){
-  const root=$('#pdfEditorPages'); if(!root)return;
-  root.innerHTML=pdfPages.map((p,i)=>`<div class="pdf-edit-card"><img src="${p.data}" alt="Seite ${i+1}"><div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:8px;align-items:center"><strong style="margin-right:auto">Seite ${i+1}</strong><button class="btn secondary" data-pdf-up="${i}" ${i===0?'disabled':''}>↑</button><button class="btn secondary" data-pdf-down="${i}" ${i===pdfPages.length-1?'disabled':''}>↓</button><button class="btn secondary" data-pdf-rotate="${i}">↻ Drehen</button><button class="btn secondary" data-pdf-delete="${i}">🗑️ Löschen</button></div></div>`).join('');
-  root.querySelectorAll('[data-pdf-up]').forEach(b=>b.onclick=()=>movePdfPage(+b.dataset.pdfUp,-1));
-  root.querySelectorAll('[data-pdf-down]').forEach(b=>b.onclick=()=>movePdfPage(+b.dataset.pdfDown,1));
-  root.querySelectorAll('[data-pdf-rotate]').forEach(b=>b.onclick=()=>rotatePdfPage(+b.dataset.pdfRotate));
-  root.querySelectorAll('[data-pdf-delete]').forEach(b=>b.onclick=()=>{const i=+b.dataset.pdfDelete;pdfPages.splice(i,1);pdfBlob=null;$('#pdfResult').classList.add('hidden');renderPdfPages();renderPdfEditor();toast('Seite gelöscht');});
-}
-$('#pdfEdit').onclick=()=>{ $('#pdfEditor').classList.remove('hidden'); renderPdfEditor(); $('#pdfEditor').scrollIntoView({behavior:'smooth',block:'start'}); };
-$('#pdfEditorClose').onclick=()=>$('#pdfEditor').classList.add('hidden');
-
 /* FUXLShop Chat + WebRTC via PeerJS */
 let peer=null, myPeerId='', chatConn=null, activePeer='', pendingCall=null, activeCall=null;
 let localCallStream=null, remoteCallStream=null, callStartedAt=0, callTimerHandle=null, callMode='audio', cameraFacing='user';
@@ -474,14 +428,14 @@ function loadChatIds(){
 function saveChatIds(list){
  try{
   const seen=new Set(), out=[];
-  for(const c of list){ if(c&&c.id&&!seen.has(c.id)){ seen.add(c.id); out.push({id:c.id,name:c.name||c.id,photo:c.photo||''}); } }
+  for(const c of list){ if(c&&c.id&&!seen.has(c.id)){ seen.add(c.id); out.push({id:c.id,name:c.name||c.id,photo:c.photo||'',phone:c.phone||''}); } }
   localStorage.setItem('scanapp_chat_ids',JSON.stringify(out.slice(0,50)));
  }catch{}
 }
-function addOrUpdateContact(id,name,photo){
+function addOrUpdateContact(id,name,photo,phone){
  const old=loadChatIds().find(c=>c.id===id)||{};
  const list=loadChatIds().filter(c=>c.id!==id);
- list.unshift({id,name:name||old.name||id,photo:photo||old.photo||''});
+ list.unshift({id,name:name||old.name||id,photo:photo||old.photo||'',phone:phone||old.phone||''});
  saveChatIds(list); renderSavedChatIds();
 }
 function chatKey(id){return 'scanapp_chat_'+id}
@@ -522,7 +476,7 @@ function openGroupChat(groupId){
 function attachDataConnection(conn){
  if(!conn)return;
  chatConn=conn;
- conn.on('open',()=>{activePeer=conn.peer;setChatPartner(conn.peer,true);try{conn.send({type:'profile',name:myDisplayName(),photo:myProfilePhoto()})}catch{};toast('Chat verbunden ✓');});
+ conn.on('open',()=>{activePeer=conn.peer;setChatPartner(conn.peer,true);try{conn.send({type:'profile',name:myDisplayName(),photo:myProfilePhoto(),phone:myPhoneNumber()})}catch{};toast('Chat verbunden ✓');});
  conn.on('data',data=>{
    if(data?.type==='profile'){addOrUpdateContact(conn.peer,data.name||conn.peer,data.photo||'');setChatPartner(conn.peer,true);return;}
    if(data?.type==='chat'){addChatMessage(conn.peer,data.text,false,'text');}
@@ -532,86 +486,52 @@ function attachDataConnection(conn){
  conn.on('error',()=>toast('Chat-Verbindung konnte nicht hergestellt werden.'));
 }
 function connectToPeer(id){
- id=(id||'').trim(); if(!id)return toast('Bitte eine FUXLShop-ID eingeben.');
- if(!/^\d{4}$/.test(id))return toast('Bitte eine 4-stellige FUXLShop-ID eingeben.');
- if(id===myPeerId)return toast('Das ist deine eigene ID.');
- if(!peer || peer.destroyed)return toast('Chat-Dienst ist noch nicht verbunden.');
- activePeer=id; setChatPartner(id,false);
- if(chatConn){try{chatConn.close()}catch{} chatConn=null;}
- const conn=peer.connect(id,{reliable:true,serialization:'json',metadata:{app:'FUXLShop',name:myDisplayName(),photo:myProfilePhoto()}}); attachDataConnection(conn);
+ id=(id||'').trim(); if(!id)return toast('Bitte eine Kontakt-ID oder Telefonnummer eingeben.');
+ const peerTarget=targetToPeerId(id);
+ if(!peerTarget)return toast('Bitte eine gültige Kontakt-ID oder Telefonnummer eingeben.');
+ if(peerTarget===myPeerId)return toast('Das ist deine eigene Kontakt-ID.');
+ if(!peer||peer.destroyed)return toast('Chat-Dienst ist noch nicht verbunden.');
+ activePeer=peerTarget;setChatPartner(peerTarget,false);
+ if(chatConn){try{chatConn.close()}catch{}chatConn=null;}
+ const conn=peer.connect(peerTarget,{reliable:true,serialization:'json',metadata:{app:'FUXLShop',name:myDisplayName(),photo:myProfilePhoto(),phone:myPhoneNumber()}});attachDataConnection(conn);
+ setTimeout(()=>{if(!conn.open&&activePeer===peerTarget)$('#chatPartnerStatus').textContent='🔴 Keine Verbindung. Prüfe Kontakt-ID/Telefonnummer und ob das andere Gerät online ist.';},12000);
 }
+
 function initPeer(){
- if(typeof Peer!=='function'){ $('#chatConnectionStatus').textContent='⚠️ Chat-Bibliothek (peerjs) konnte nicht geladen werden. Internetverbindung/Blocker prüfen.'; return; }
+ if(typeof Peer!=='function'){ $('#chatConnectionStatus').textContent='⚠️ Chat-Bibliothek (PeerJS) konnte nicht geladen werden. Internetverbindung/Blocker prüfen.'; return; }
  if(navigator.onLine===false){ $('#chatConnectionStatus').textContent='🔴 Kein Internet – bitte WLAN/Mobilfunk prüfen.'; $('#chatRetryBtn').classList.remove('hidden'); return; }
  $('#chatRetryBtn').classList.add('hidden');
- let secs=0;
- clearInterval(window._peerConnectCounter);
- window._peerConnectCounter=setInterval(()=>{
-   if(myPeerId) return;
-   secs++;
-   $('#chatConnectionStatus').textContent='⏳ Verbinde mit Chat-Dienst… ('+secs+'s)';
- },1000);
- clearTimeout(window._peerConnectTimeout);
- window._peerConnectTimeout=setTimeout(()=>{
-  if(!myPeerId){
-   clearInterval(window._peerConnectCounter);
-   $('#chatConnectionStatus').textContent='🔴 Keine Antwort vom Chat-Dienst nach 10s (Netzwerk/Firewall blockiert evtl. WebSocket-Verbindungen).';
-   $('#chatRetryBtn').classList.remove('hidden');
-  }
- },10000);
- // Kurze, gut abtippbare 4-stellige ID. PeerJS prüft die Eindeutigkeit.
- // Bei einer Kollision wird automatisch eine neue 4-stellige ID erzeugt.
- function newShortPeerId(){ return String(Math.floor(1000+Math.random()*9000)); }
- localStorage.removeItem('scanapp_peer_id');
+ let secs=0; clearInterval(window._peerConnectCounter); clearTimeout(window._peerConnectTimeout);
+ window._peerConnectCounter=setInterval(()=>{if(myPeerId)return;secs++;$('#chatConnectionStatus').textContent='⏳ Verbinde mit Chat-Dienst… ('+secs+'s)';},1000);
+ window._peerConnectTimeout=setTimeout(()=>{if(!myPeerId){clearInterval(window._peerConnectCounter);$('#chatConnectionStatus').textContent='🔴 Keine Antwort vom Chat-Dienst nach 10s. Internet/Firewall prüfen.';$('#chatRetryBtn').classList.remove('hidden');}},10000);
+ const requestedId=currentPreferredPeerId();
  const peerOptions={debug:0,config:{iceServers:[{urls:'stun:stun.l.google.com:19302'}]}};
- let requestedId=newShortPeerId();
- try{ peer=new Peer(requestedId,peerOptions); }catch(e){ console.warn('PeerJS Startfehler:',e); try{ peer=new Peer(newShortPeerId()); }catch(e2){ $('#chatConnectionStatus').textContent='🔴 Chat konnte nicht gestartet werden.'; return; } }
+ try{peer=new Peer(requestedId,peerOptions);}catch(e){console.warn('PeerJS Startfehler:',e);try{peer=new Peer(requestedId);}catch(e2){$('#chatConnectionStatus').textContent='🔴 Chat konnte nicht gestartet werden.';return;}}
  peer.on('open',pid=>{
-   clearTimeout(window._peerConnectTimeout); clearInterval(window._peerConnectCounter);
-   myPeerId=pid; localStorage.setItem('scanapp_peer_id',pid); $('#myChatId').value=pid; $('#chatConnectionStatus').textContent='🟢 Online – deine 4-stellige ID ist auf diesem Gerät aktiv.'; $('#chatRetryBtn').classList.add('hidden');
+   clearTimeout(window._peerConnectTimeout);clearInterval(window._peerConnectCounter);myPeerId=pid;localStorage.setItem('scanapp_peer_id',pid);$('#myChatId').value=pid;$('#chatConnectionStatus').textContent='🟢 Online – deine Kontakt-ID ist stabil.';$('#chatRetryBtn').classList.add('hidden');
  });
  peer.on('connection',conn=>{
-   if(conn.metadata?.probe){
-     conn.on('open',()=>{ try{conn.send({type:'probe-ok'});}catch{}; setTimeout(()=>{try{conn.close()}catch{}},120); });
-     return;
-   }
-   const incomingName=conn.metadata?.name; const incomingPhoto=conn.metadata?.photo||'';
-   if(incomingName||incomingPhoto) addOrUpdateContact(conn.peer,incomingName||conn.peer,incomingPhoto);
+   if(conn.metadata?.probe){conn.on('open',()=>{try{conn.send({type:'probe-ok'});}catch{};setTimeout(()=>{try{conn.close()}catch{}},120);});return;}
+   const incomingName=conn.metadata?.name;const incomingPhoto=conn.metadata?.photo||'';const incomingPhone=conn.metadata?.phone||''; if(incomingName||incomingPhoto||incomingPhone)addOrUpdateContact(conn.peer,incomingName||conn.peer,incomingPhoto,incomingPhone);
    conn.on('data',data=>{
-     if(data?.type==='group-invite'){
-       upsertGroup({id:data.groupId,name:data.groupName,members:data.members});
-       toast('Du wurdest zur Gruppe „'+data.groupName+'" hinzugefügt');
-       return;
-     }
-     if(data?.type==='group-chat'){
-       addChatMessage(data.groupId,data.text,false,'text');
-       if(activePeer!==data.groupId){ toast('💬 '+(data.from?.name||'Jemand')+' ('+data.groupName+'): '+String(data.text).slice(0,40)); }
-       return;
-     }
-     if(data?.type==='group-chat-image'){
-       addChatMessage(data.groupId,data.img,false,'image');
-       if(activePeer!==data.groupId){ toast('📷 Foto von '+(data.from?.name||'Jemand')+' in „'+data.groupName+'"'); }
-       return;
-     }
-     if(data?.type==='profile'){ addOrUpdateContact(conn.peer,data.name||conn.peer,data.photo||''); if(chatConn===conn)setChatPartner(conn.peer,true); return; }
-     if(data?.type==='chat'){ chatConn=conn; activePeer=conn.peer; setChatPartner(conn.peer,true); addChatMessage(conn.peer,data.text,false,'text'); return; }
-     if(data?.type==='image'){ chatConn=conn; activePeer=conn.peer; setChatPartner(conn.peer,true); addChatMessage(conn.peer,data.img,false,'image'); return; }
+     if(data?.type==='group-invite'){upsertGroup({id:data.groupId,name:data.groupName,members:data.members});toast('Du wurdest zur Gruppe „'+data.groupName+'" hinzugefügt');return;}
+     if(data?.type==='group-chat'){addChatMessage(data.groupId,data.text,false,'text');if(activePeer!==data.groupId)toast('💬 '+(data.from?.name||'Jemand')+': '+String(data.text).slice(0,40));return;}
+     if(data?.type==='group-chat-image'){addChatMessage(data.groupId,data.img,false,'image');if(activePeer!==data.groupId)toast('📷 Foto von '+(data.from?.name||'Jemand'));return;}
+     if(data?.type==='profile'){addOrUpdateContact(conn.peer,data.name||conn.peer,data.photo||'',data.phone||'');if(chatConn===conn)setChatPartner(conn.peer,true);return;}
+     if(data?.type==='chat'){chatConn=conn;activePeer=conn.peer;setChatPartner(conn.peer,true);addChatMessage(conn.peer,data.text,false,'text');return;}
+     if(data?.type==='image'){chatConn=conn;activePeer=conn.peer;setChatPartner(conn.peer,true);addChatMessage(conn.peer,data.img,false,'image');return;}
    });
-   conn.on('close',()=>{ if(chatConn===conn){ $('#chatPartnerStatus').textContent='⚪ Verbindung getrennt'; $('#chatMessage').disabled=true; $('#chatSend').disabled=true; $('#voiceCall').disabled=true; $('#videoCall').disabled=true; } });
+   conn.on('close',()=>{if(chatConn===conn){$('#chatPartnerStatus').textContent='⚪ Verbindung getrennt';$('#chatMessage').disabled=true;$('#chatSend').disabled=true;$('#voiceCall').disabled=true;$('#videoCall').disabled=true;}});
  });
  peer.on('call',call=>handleIncomingCall(call));
  peer.on('error',err=>{
    console.warn('PeerJS:',err?.type,err);
-   if(err?.type==='unavailable-id'){
-     try{peer.destroy()}catch{}
-     myPeerId='';
-     $('#myChatId').value='Neue ID…';
-     setTimeout(()=>initPeer(),350);
-   }else if(err?.type==='peer-unavailable'){toast('Diese FUXLShop-ID ist gerade nicht online.');}
-   else if(err?.type==='network'){ clearInterval(window._peerConnectCounter); $('#chatConnectionStatus').textContent='🔴 Netzwerkproblem (PeerJS meldet "network") – Internet prüfen.'; $('#chatRetryBtn').classList.remove('hidden'); }
-   else { clearInterval(window._peerConnectCounter); $('#chatConnectionStatus').textContent='🔴 Verbindungsfehler: '+(err?.type||'unbekannt')+(err?.message?(' – '+err.message):''); $('#chatRetryBtn').classList.remove('hidden'); }
+   if(err?.type==='unavailable-id'){$('#chatConnectionStatus').textContent='🔴 Diese Kontakt-ID ist bereits auf einem anderen Gerät aktiv. Prüfe deine Telefonnummer oder nutze eine andere Kontakt-ID.';$('#chatRetryBtn').classList.remove('hidden');}
+   else if(err?.type==='peer-unavailable')toast('Diese Kontakt-ID ist gerade nicht online.');
+   else if(err?.type==='network'){clearInterval(window._peerConnectCounter);$('#chatConnectionStatus').textContent='🔴 Netzwerkproblem – Internet prüfen.';$('#chatRetryBtn').classList.remove('hidden');}
+   else {clearInterval(window._peerConnectCounter);$('#chatConnectionStatus').textContent='🔴 Verbindungsfehler: '+(err?.type||'unbekannt')+(err?.message?(' – '+err.message):'');$('#chatRetryBtn').classList.remove('hidden');}
  });
- peer.on('disconnected',()=>{ $('#chatConnectionStatus').textContent='🟡 Chat-Dienst getrennt – verbinde neu…'; try{peer.reconnect()}catch{} });
+ peer.on('disconnected',()=>{$('#chatConnectionStatus').textContent='🟡 Chat-Dienst getrennt – verbinde neu…';try{peer.reconnect()}catch{}});
 }
 $('#chatRetryBtn').onclick=()=>{ try{peer&&peer.destroy&&peer.destroy()}catch{}; myPeerId=null; initPeer(); };
 async function checkContactOnline(id){
@@ -701,7 +621,7 @@ async function sendGroupMessage(groupId,text){
 function renderSavedChatIds(){
  const root=$('#savedChatList'); const list=loadChatIds(); const groups=loadGroups();
  const groupsHtml=groups.map(g=>`<div class="item" style="margin:6px 0;padding:10px;background:var(--soft)"><div class="item-main"><div class="item-val" style="font-weight:700">👥 ${escapeHtml(g.name)}</div><div class="meta">${g.members.length} Mitglieder</div></div><button class="btn secondary" data-open-group="${escapeHtml(g.id)}">Öffnen</button><button class="item-delete" data-del-group="${escapeHtml(g.id)}">✕</button></div>`).join('');
- const contactsHtml=list.length?list.map(c=>`<div class="item" style="margin:6px 0;padding:10px"><div class="item-main" style="display:flex;align-items:center;gap:9px"><div class="avatar-circle remote-avatar" style="width:38px;height:38px;font-size:15px;${c.photo?`background-image:url('${c.photo}')`:''}">${c.photo?'':escapeHtml((c.name||c.id).charAt(0).toUpperCase())}</div><div><div class="item-val" style="font-weight:700">${escapeHtml(c.name||c.id)}</div><div class="meta"><span class="online-dot off" data-presence-id="${escapeHtml(c.id)}"></span><span data-presence-text>Prüfe…</span> · ID ${escapeHtml(c.id)}</div></div></div><button class="btn secondary" data-open-id="${escapeHtml(c.id)}">Öffnen</button><button class="item-delete" data-del-id="${escapeHtml(c.id)}">✕</button></div>`).join(''):'';
+ const contactsHtml=list.length?list.map(c=>`<div class="item" style="margin:6px 0;padding:10px"><div class="item-main" style="display:flex;align-items:center;gap:9px"><div class="avatar-circle remote-avatar" style="width:38px;height:38px;font-size:15px;${c.photo?`background-image:url('${c.photo}')`:''}">${c.photo?'':escapeHtml((c.name||c.id).charAt(0).toUpperCase())}</div><div><div class="item-val" style="font-weight:700">${escapeHtml(c.name||c.id)}</div><div class="meta"><span class="online-dot off" data-presence-id="${escapeHtml(c.id)}"></span><span data-presence-text>Prüfe…</span>${c.phone?' · '+escapeHtml(c.phone):''} · ID ${escapeHtml(c.id)}</div></div></div><button class="btn secondary" data-open-id="${escapeHtml(c.id)}">Öffnen</button><button class="item-delete" data-del-id="${escapeHtml(c.id)}">✕</button></div>`).join(''):'';
  root.innerHTML=(groupsHtml+contactsHtml)||'<div class="hint">Noch keine gespeicherten Kontakte. Per QR-Code hinzufügen oder ID eintragen und „ID speichern".</div>';
  root.querySelectorAll('[data-open-id]').forEach(b=>b.onclick=()=>{connectToPeer(b.dataset.openId);});
  root.querySelectorAll('[data-del-id]').forEach(b=>b.onclick=()=>{saveChatIds(loadChatIds().filter(x=>x.id!==b.dataset.delId));renderSavedChatIds()});
@@ -711,9 +631,9 @@ function renderSavedChatIds(){
 }
 $('#chatConnect').onclick=()=>connectToPeer($('#chatTarget').value);
 $('#chatSaveTarget').onclick=()=>{
- const id=$('#chatTarget').value.trim();if(!/^\d{4}$/.test(id))return toast('Bitte eine 4-stellige FUXLShop-ID eingeben.');
- const name=prompt('Name für diesen Kontakt (optional):','')||id;
- addOrUpdateContact(id,name); toast('Kontakt gespeichert ✓');
+ const raw=$('#chatTarget').value.trim();const id=targetToPeerId(raw);if(!id)return toast('Bitte eine Kontakt-ID oder Telefonnummer eingeben.');
+ const name=prompt('Name für diesen Kontakt (optional):','')||raw;
+ addOrUpdateContact(id,name,'',/^\+?[0-9 ()\-]{6,}$/.test(raw)?raw:''); toast('Kontakt gespeichert ✓');
 };
 $('#chatSavedOpen').onclick=()=>{renderSavedChatIds();toast('Kontakte aktualisiert ✓');};
 $('#chatEndBtn').onclick=()=>{
@@ -765,15 +685,12 @@ $('#ocrCopyBtn').onclick=async()=>{
   if(!text)return toast('Kein Text zum Kopieren.');
   try{await navigator.clipboard.writeText(text);toast('Text kopiert ✓');}catch{toast('Kopieren nicht verfügbar.');}
 };
-$('#ocrTranslateBtn').onclick=()=>{
-  const text=ocrResultText.value.trim();
-  if(!text)return toast('Kein erkannter Text vorhanden.');
-  showPage('chat');
-  setTimeout(()=>{
-    if($('#translateInput'))$('#translateInput').value=text;
-    if($('#translateStatus'))$('#translateStatus').textContent='📷 Text aus Foto übernommen. Zielsprache wählen und „Übersetzen“ drücken.';
-    $('#translateInput')?.focus();
-  },50);
+$('#ocrTranslateBtn').onclick=async()=>{
+  const text=ocrResultText.value.trim();if(!text)return toast('Kein erkannter Text vorhanden.');
+  const to=$('#ocrTranslateTarget')?.value||'de';
+  const out=$('#ocrTranslationResult');out.classList.remove('hidden');out.textContent='⏳ Übersetze…';
+  try{const translated=await translateTextOnline(text,'auto',to);out.textContent=translated||'Keine Übersetzung erhalten.';setOcrStatus('✅ Übersetzt nach '+(LANG_NAMES[to]||to));localStorage.setItem('fuxlshop_ocr_target',to);}
+  catch(e){out.textContent='Übersetzung fehlgeschlagen: '+(e?.message||'Fehler');setOcrStatus('🔴 Übersetzung fehlgeschlagen');}
 };
 $('#refreshAppBtn').onclick=()=>{try{if('serviceWorker' in navigator)navigator.serviceWorker.getRegistrations().then(rs=>rs.forEach(r=>r.update())).catch(()=>{});}catch{} location.reload();};
 
@@ -781,6 +698,8 @@ $('#refreshAppBtn').onclick=()=>{try{if('serviceWorker' in navigator)navigator.s
 const LANG_NAMES={auto:'Automatisch',af:'Afrikaans',sq:'Shqip',am:'አማርኛ',ar:'العربية',hy:'Հայերեն',az:'Azərbaycan',eu:'Euskara',be:'Беларуская',bn:'বাংলা',bs:'Bosanski',bg:'Български',ca:'Català',ceb:'Cebuano',zh:'中文',zh_TW:'繁體中文',co:'Corsu',hr:'Hrvatski',cs:'Čeština',da:'Dansk',nl:'Nederlands',en:'English',eo:'Esperanto',et:'Eesti',fi:'Suomi',fr:'Français',fy:'Fries',gl:'Galego',ka:'ქართული',de:'Deutsch',el:'Ελληνικά',gu:'ગુજરાતી',ht:'Kreyòl ayisyen',ha:'Hausa',haw:'ʻŌlelo Hawaiʻi',he:'עברית',hi:'हिन्दी',hmn:'Hmong',hu:'Magyar',is:'Íslenska',ig:'Igbo',id:'Bahasa Indonesia',ga:'Gaeilge',it:'Italiano',ja:'日本語',jv:'Jawa',kn:'ಕನ್ನಡ',kk:'Қазақша',km:'ខ្មែរ',ko:'한국어',ku:'Kurdî',ky:'Кыргызча',lo:'ລາວ',la:'Latina',lv:'Latviešu',lt:'Lietuvių',lb:'Lëtzebuergesch',mk:'Македонски',mg:'Malagasy',ms:'Melayu',ml:'മലയാളം',mt:'Malti',mi:'Māori',mr:'मराठी',mn:'Монгол',my:'မြန်မာ',ne:'नेपाली',no:'Norsk',ny:'Chichewa',or:'ଓଡ଼ିଆ',ps:'پښتو',fa:'فارسی',pl:'Polski',pt:'Português',pa:'ਪੰਜਾਬੀ',ro:'Română',ru:'Русский',sm:'Samoa',gd:'Gàidhlig',sr:'Српски',st:'Sesotho',sn:'Shona',sd:'سنڌي',si:'සිංහල',sk:'Slovenčina',sl:'Slovenščina',so:'Soomaali',es:'Español',su:'Sundanese',sw:'Kiswahili',sv:'Svenska',tl:'Filipino',tg:'Тоҷикӣ',ta:'தமிழ்',tt:'Татарча',te:'తెలుగు',th:'ไทย',tr:'Türkçe',tk:'Türkmençe',uk:'Українська',ur:'اردو',ug:'ئۇيغۇرچە',uz:'Oʻzbekcha',vi:'Tiếng Việt',cy:'Cymraeg',xh:'isiXhosa',yi:'ייִדיש',yo:'Yorùbá',zu:'isiZulu'};
 const translateOptions=Object.entries(LANG_NAMES).filter(([k])=>k!=='auto').sort((a,b)=>a[1].localeCompare(b[1],'de'));
 ['#translateFrom','#translateTo'].forEach(sel=>{const el=$(sel);if(!el)return;const current=el.value;el.innerHTML=(sel==='#translateFrom'?'<option value="auto">🔎 Automatisch erkennen</option>':'')+translateOptions.map(([k,n])=>`<option value="${k}">${n}</option>`).join('');el.value=(current&&el.querySelector(`option[value="${current}"]`))?current:(sel==='#translateFrom'?'auto':'de');});
+const ocrTarget=$('#ocrTranslateTarget'); if(ocrTarget){const saved=localStorage.getItem('fuxlshop_ocr_target')||'de';ocrTarget.innerHTML=translateOptions.map(([k,n])=>`<option value="${k}">${n}</option>`).join('');ocrTarget.value=ocrTarget.querySelector(`option[value="${saved}"]`)?saved:'de';ocrTarget.onchange=()=>localStorage.setItem('fuxlshop_ocr_target',ocrTarget.value);}
+
 let lastTranslation='';
 let speechRecognition=null;
 function setTranslateStatus(t){const e=$('#translateStatus');if(e)e.textContent=t;}
@@ -806,7 +725,6 @@ async function runTranslation(){
 }
 $('#translateRunBtn').onclick=runTranslation;
 $('#translateTextBtn').onclick=()=>{ $('#translateInput').focus(); setTranslateStatus('Textmodus: Text eingeben und „Übersetzen“ drücken.'); };
-$('#translateUseChatBtn').onclick=()=>{if(!lastTranslation)return toast('Erst eine Übersetzung erstellen.'); if($('#chatMessage').disabled)return toast('Erst einen Chat öffnen.'); $('#chatMessage').value=lastTranslation; $('#chatMessage').focus();};
 $('#translatePhotoBtn').onclick=()=>$('#translatePhotoInput').click();
 async function runPhotoOcr(file){
  if(!file)return;
@@ -840,8 +758,11 @@ $('#translateVoiceBtn').onclick=startSpeechTranslation;
 
 /* Anzeigename */
 const displayNameInput=$('#myDisplayName');
+const phoneNumberInput=$('#myPhoneNumber');
 displayNameInput.value=localStorage.getItem('scanapp_display_name')||'';
+phoneNumberInput.value=localStorage.getItem('scanapp_phone_number')||'';
 displayNameInput.addEventListener('change',()=>{localStorage.setItem('scanapp_display_name',displayNameInput.value.trim());renderMyAvatar();});
+phoneNumberInput.addEventListener('change',()=>{const n=normalizePhoneNumber(phoneNumberInput.value);localStorage.setItem('scanapp_phone_number',n);localStorage.removeItem('scanapp_peer_stable_id');if(peer&&!peer.destroyed){try{peer.destroy()}catch{}myPeerId='';}setTimeout(initPeer,250);toast('Telefonnummer gespeichert – neue stabile Kontakt-ID wird verbunden.');});
 function myDisplayName(){return (localStorage.getItem('scanapp_display_name')||'').trim();}
 
 /* Profilbild */
@@ -876,7 +797,7 @@ $('#profilePhotoInput').onchange=e=>{
 $('#showMyQrBtn').onclick=()=>{
  if(!myPeerId){toast('Bitte warten, bis „Meine FUXLShop-ID" verbunden ist.');return;}
  const name=myDisplayName();
- const payload='fuxlshop-contact:'+myPeerId+':'+encodeURIComponent(name||myPeerId);
+ const payload='fuxlshop-contact-v2:'+encodeURIComponent(myPeerId)+'|'+encodeURIComponent(name||myPeerId)+'|'+encodeURIComponent(myPhoneNumber());
  $('#overlay').classList.add('show');
  $('#sheet').innerHTML=`<h3>📱 Mein Kontakt-QR</h3><p class="sub" style="margin-bottom:10px">Andere FUXLShop-Nutzer scannen diesen Code, um dich sofort als Kontakt zu speichern.</p><div class="qr-preview" id="myQrPreview"></div><div class="row"><button class="btn secondary" id="closeMyQr">Schließen</button></div>`;
  new QRCode($('#myQrPreview'),{text:payload,width:220,height:220,correctLevel:QRCode.CorrectLevel.M});
@@ -894,12 +815,13 @@ $('#contactQrInput').onchange=e=>{
   const data=cx.getImageData(0,0,c.width,c.height);
   const code=window.jsQR?jsQR(data.data,data.width,data.height,{inversionAttempts:'attemptBoth'}):null;
   if(!code||!code.data){toast('Kein QR-Code gefunden.');return;}
-  const m=/^fuxlshop-contact:([^:]+):(.*)$/.exec(code.data);
-  if(m){
-   const id=m[1], name=decodeURIComponent(m[2]||id);
-   addOrUpdateContact(id,name);
-   $('#chatTarget').value=id;
-   toast(name+' als Kontakt gespeichert ✓');
+  const m2=/^fuxlshop-contact-v2:([^|]+)\|([^|]*)\|([^|]*)$/.exec(code.data);
+  const m1=/^fuxlshop-contact:([^:]+):(.*)$/.exec(code.data);
+  if(m2){
+   const id=decodeURIComponent(m2[1]),name=decodeURIComponent(m2[2]||id),phone=decodeURIComponent(m2[3]||'');
+   addOrUpdateContact(id,name,'',phone);$('#chatTarget').value=phone||id;toast(name+' als Kontakt gespeichert ✓');
+  } else if(m1){
+   const id=m1[1],name=decodeURIComponent(m1[2]||id);addOrUpdateContact(id,name);$('#chatTarget').value=id;toast(name+' als Kontakt gespeichert ✓');
   } else if(/^https?:\/\//i.test(code.data) || /^[a-z0-9.-]+\.[a-z]{2,}/i.test(code.data)){
    toast('Das ist kein FUXLShop-Kontakt-QR, sondern ein normaler Link/Text.');
   } else {
@@ -963,14 +885,16 @@ $('#chatPhoneCall').onclick=()=>{
  if(activePeer) toast('Für einen normalen Telefonanruf bitte eine Telefonnummer eintragen.'); else toast('Telefonnummer eintragen.');
 };
 $('#chatContacts').onclick=async()=>{
- if(!('contacts' in navigator && navigator.contacts?.select)){
-  toast('„Kontakte auswählen" funktioniert nur in Chrome auf Android – auf iPhone/PC gibt es diese Browser-Funktion nicht. Bitte ID/Nummer manuell eintragen.');
-  return;
+ if('contacts' in navigator && navigator.contacts?.select){
+  try{const contacts=await navigator.contacts.select(['name','tel'],{multiple:false});const c=contacts?.[0];const tel=c?.tel?.[0]||'';if(tel){$('#chatTarget').value=tel;toast((c.name?.[0]||'Kontakt')+' ausgewählt ✓');}return;}catch(e){if(e?.name==='AbortError')return;}
  }
- try{
-  const contacts=await navigator.contacts.select(['name','tel'],{multiple:false}); const c=contacts?.[0]; const tel=c?.tel?.[0]||'';
-  if(tel){$('#chatTarget').value=tel;toast((c.name?.[0]||'Kontakt')+' ausgewählt ✓');}
- }catch(e){if(e?.name!=='AbortError')toast('Kontaktauswahl abgebrochen oder fehlgeschlagen.');}
+ $('#contactVcardInput').click();
+};
+$('#chatVcard').onclick=()=>$('#contactVcardInput').click();
+$('#contactVcardInput').onchange=async e=>{
+ const file=e.target.files?.[0];e.target.value='';if(!file)return;
+ try{const text=await file.text();const name=(text.match(/^FN(?:;[^:]*)?:(.*)$/mi)?.[1]||'').trim();const tel=(text.match(/^TEL(?:;[^:]*)?:(.*)$/mi)?.[1]||'').trim();if(!tel){toast('Keine Telefonnummer in der Kontaktkarte gefunden.');return;}$('#chatTarget').value=tel;const id=targetToPeerId(tel);addOrUpdateContact(id,name||tel,'',tel);toast((name||'Kontakt')+' aus Kontaktkarte übernommen ✓');}
+ catch(err){toast('Kontaktkarte konnte nicht gelesen werden.');}
 };
 function showCallOverlay(incoming=false){$('#callOverlay').classList.add('show');$('#incomingCallPanel').classList.toggle('hidden',!incoming);$('#activeCallPanel').classList.toggle('hidden',incoming);}
 function hideCallOverlay(){ $('#callOverlay').classList.remove('show'); }
@@ -1258,16 +1182,44 @@ const bizTypes=[
  {id:'meet',icon:'📹',label:'Google Meet',desc:'Meeting-Link',fields:[['url','Meet-Link']],build:v=>v.url},
  {id:'paypal',icon:'💳',label:'PayPal',desc:'PayPal.me',fields:[['user','PayPal.me-Name'],['amount','Betrag (optional)']],build:v=>`https://paypal.me/${v.user}${v.amount?'/'+v.amount:''}`}
 ];
-
+const socialTypes=[
+ {id:'instagram',icon:'📸',label:'Instagram',desc:'Profil-QR',fields:[['user','Instagram @Name']],build:v=>`https://instagram.com/${String(v.user||'').replace(/^@/,'')}`},
+ {id:'facebook',icon:'📘',label:'Facebook',desc:'Profil/Seite',fields:[['url','Facebook-Link','https://facebook.com/…']],build:v=>v.url},
+ {id:'tiktok',icon:'🎵',label:'TikTok',desc:'Profil-QR',fields:[['user','TikTok @Name']],build:v=>`https://www.tiktok.com/@${String(v.user||'').replace(/^@/,'')}`},
+ {id:'youtube',icon:'▶️',label:'YouTube',desc:'Kanal/Video',fields:[['url','YouTube-Link','https://youtube.com/…']],build:v=>v.url},
+ {id:'x',icon:'𝕏',label:'X',desc:'Profil-QR',fields:[['user','X @Name']],build:v=>`https://x.com/${String(v.user||'').replace(/^@/,'')}`},
+ {id:'linkedin',icon:'💼',label:'LinkedIn',desc:'Profil/Seite',fields:[['url','LinkedIn-Link','https://linkedin.com/…']],build:v=>v.url},
+ {id:'snapchat',icon:'👻',label:'Snapchat',desc:'Profil-Link',fields:[['url','Snapchat-Link']],build:v=>v.url},
+ {id:'pinterest',icon:'📌',label:'Pinterest',desc:'Profil/Board',fields:[['url','Pinterest-Link']],build:v=>v.url},
+ {id:'telegram',icon:'✈️',label:'Telegram',desc:'Profil/Gruppe',fields:[['user','Telegram @Name']],build:v=>`https://t.me/${String(v.user||'').replace(/^@/,'')}`},
+ {id:'whatsapp',icon:'🟢',label:'WhatsApp',desc:'Chat-Link',fields:[['phone','Telefonnummer'],['msg','Startnachricht']],build:v=>`https://wa.me/${String(v.phone||'').replace(/\D/g,'')}${v.msg?`?text=${encodeURIComponent(v.msg)}`:''}`},
+ {id:'threads',icon:'🧵',label:'Threads',desc:'Profil-QR',fields:[['user','Threads @Name']],build:v=>`https://www.threads.net/@${String(v.user||'').replace(/^@/,'')}`},
+ {id:'discord',icon:'💬',label:'Discord',desc:'Einladungs-Link',fields:[['url','Discord-Link']],build:v=>v.url}
+];
+const barcodeTypes=[
+ {id:'CODE128',icon:'▥',label:'Code 128',desc:'Universell',fields:[['value','Wert']],build:v=>v.value,format:'CODE128'},
+ {id:'CODE128A',icon:'▥',label:'Code 128 A',desc:'ASCII A',fields:[['value','Wert']],build:v=>v.value,format:'CODE128A'},
+ {id:'CODE128B',icon:'▥',label:'Code 128 B',desc:'ASCII B',fields:[['value','Wert']],build:v=>v.value,format:'CODE128B'},
+ {id:'CODE128C',icon:'▥',label:'Code 128 C',desc:'Ziffernpaare',fields:[['value','Ziffern']],build:v=>v.value,format:'CODE128C'},
+ {id:'CODE39',icon:'▥',label:'Code 39',desc:'Alphanumerisch',fields:[['value','Wert']],format:'CODE39'},
+ {id:'EAN13',icon:'▥',label:'EAN-13',desc:'13 Ziffern',fields:[['value','EAN-13']],build:v=>v.value,format:'EAN13'},
+ {id:'EAN8',icon:'▥',label:'EAN-8',desc:'8 Ziffern',fields:[['value','EAN-8']],build:v=>v.value,format:'EAN8'},
+ {id:'EAN5',icon:'▥',label:'EAN-5',desc:'Zusatzcode',fields:[['value','5 Ziffern']],build:v=>v.value,format:'EAN5'},
+ {id:'EAN2',icon:'▥',label:'EAN-2',desc:'Zusatzcode',fields:[['value','2 Ziffern']],build:v=>v.value,format:'EAN2'},
+ {id:'UPC',icon:'▥',label:'UPC-A',desc:'12 Ziffern',fields:[['value','UPC-A']],build:v=>v.value,format:'UPC'},
+ {id:'ITF14',icon:'▥',label:'ITF-14',desc:'14 Ziffern',fields:[['value','ITF-14']],build:v=>v.value,format:'ITF14'},
+ {id:'MSI',icon:'▥',label:'MSI',desc:'Lager/Artikel',fields:[['value','Wert']],build:v=>v.value,format:'MSI'},
+ {id:'pharmacode',icon:'▥',label:'Pharmacode',desc:'Pharma',fields:[['value','Wert']],build:v=>v.value,format:'pharmacode'},
+ {id:'codabar',icon:'▥',label:'Codabar',desc:'Spezialformat',fields:[['value','Wert']],build:v=>v.value,format:'codabar'}
+];
 function buildGrid(list,id){
  $('#'+id).innerHTML=list.map(t=>`<button class="type-card" data-id="${t.id}"><span class="ico">${t.icon}</span><strong>${t.label}</strong><span>${t.desc}</span></button>`).join('');
  $('#'+id).querySelectorAll('.type-card').forEach(b=>b.onclick=()=>openForm(list.find(t=>t.id===b.dataset.id)));
 }
-buildGrid(qrTypes,'qrGrid');buildGrid(bizTypes,'bizGrid');
-
+buildGrid(qrTypes,'qrGrid');buildGrid(bizTypes,'bizGrid');buildGrid(socialTypes,'socialGrid');buildGrid(barcodeTypes,'barcodeGrid');
 function openForm(t){
  $('#overlay').classList.add('show');
- $('#sheet').innerHTML=`<h3>${t.icon} ${t.label}</h3><div id="fields"></div><div class="qr-preview" id="qrPreview"><span class="sub">Vorschau erscheint hier</span></div><div class="row"><button class="btn secondary" id="cancelForm">Abbrechen</button><button class="btn primary" id="generate">QR generieren</button></div>`;
+ $('#sheet').innerHTML=`<h3>${t.icon} ${t.label}</h3><div id="fields"></div><div class="qr-preview" id="qrPreview"><span class="sub">Vorschau erscheint hier</span></div>${t.format?'<div class="barcode-preview hidden" id="barcodePreview"><svg id="barcodeSvg"></svg></div>':''}<div class="row"><button class="btn secondary" id="cancelForm">Abbrechen</button><button class="btn primary" id="generate">${t.format?'Barcode':'QR'} generieren</button></div>`;
  const fields=$('#fields');
  fields.innerHTML=t.fields.map(f=>`<div class="field"><label>${escapeHtml(f[1])}</label>${f[2]===true?`<textarea id="f_${f[0]}" rows="4"></textarea>`:`<input id="f_${f[0]}" placeholder="${escapeHtml(f[2]||'')}">`}</div>`).join('');
  $('#cancelForm').onclick=closeForm;
@@ -1275,17 +1227,29 @@ function openForm(t){
 }
 function closeForm(){$('#overlay').classList.remove('show')}
 $('#overlay').onclick=e=>{if(e.target===$('#overlay'))closeForm()};
-
 function generateQR(t){
  const v={};t.fields.forEach(f=>v[f[0]]=$('#f_'+f[0]).value.trim());
- const data=t.build(v);
- if(!data){toast('Bitte mindestens ein Feld ausfüllen');return}
+ const built=t.build(v);
+ if(!built){toast('Bitte mindestens ein Feld ausfüllen');return}
  const box=$('#qrPreview');box.innerHTML='';
- new QRCode(box,{text:data,width:220,height:220,correctLevel:QRCode.CorrectLevel.M});
- addEntry('created',data);
- $('#generate').textContent='Gespeichert ✓';
- setTimeout(()=>{ addDownloadButton(box,data); addShareButtons(box,data); },80);
+ if(t.format){
+   if(typeof JsBarcode!=='function'){toast('Barcode-Modul konnte nicht geladen werden. Internet prüfen.');return;}
+   const holder=$('#barcodePreview');holder.classList.remove('hidden');
+   try{JsBarcode('#barcodeSvg',built,{format:t.format,lineColor:'#111827',background:'#fff',displayValue:true,margin:10,width:2,height:80});}
+   catch(e){toast('Barcode ungültig für '+t.label+': '+(e?.message||'Wert prüfen.'));return;}
+   addEntry('created',built);$('#generate').textContent='Gespeichert ✓';setTimeout(()=>addBarcodeDownloadButton(holder,built,t.format),50);return;
+ }
+ new QRCode(box,{text:built,width:220,height:220,correctLevel:QRCode.CorrectLevel.M});
+ addEntry('created',built);$('#generate').textContent='Gespeichert ✓';
+ setTimeout(()=>{addDownloadButton(box,built);addShareButtons(box,built);},80);
 }
+function addBarcodeDownloadButton(holder,data,format){
+ if($('#downloadBarcode'))return;
+ const b=document.createElement('button');b.id='downloadBarcode';b.className='btn secondary';b.style.marginTop='10px';b.textContent='⬇️ Barcode als SVG speichern';
+ b.onclick=()=>{const svg=$('#barcodeSvg');if(!svg)return;const blob=new Blob([new XMLSerializer().serializeToString(svg)],{type:'image/svg+xml'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='fuxlshop-'+format.toLowerCase()+'.svg';a.click();setTimeout(()=>URL.revokeObjectURL(url),2000);};
+ holder.parentElement.insertBefore(b,holder.nextSibling);
+}
+
 function addDownloadButton(box,data){
  if($('#downloadQR'))return;
  const b=document.createElement('button');b.id='downloadQR';b.className='btn secondary';b.style.marginTop='10px';b.textContent='⬇️ QR als PNG speichern';
@@ -1336,99 +1300,6 @@ function addShareButtons(box,data){
  row.querySelector('#shareMail').onclick=()=>{ location.href=mailHref(data); };
 }
 
-let pdfBlob=null;
-let pdfPages=[];
-const pdfPhotoBtn=$('#pdfPhotoBtn'), pdfGalleryBtn=$('#pdfGalleryBtn'), pdfFileBtn=$('#pdfFileBtn');
-const pdfPhotoInput=$('#pdfPhotoInput'), pdfGalleryInput=$('#pdfGalleryInput'), pdfFileInput=$('#pdfFileInput');
-pdfPhotoBtn.onclick=()=>{stopCamera();pdfPhotoInput.click()};
-pdfGalleryBtn.onclick=()=>pdfGalleryInput.click();
-pdfFileBtn.onclick=()=>pdfFileInput.click();
-pdfPhotoInput.onchange=e=>addPdfFiles([...e.target.files]);
-pdfGalleryInput.onchange=e=>addPdfFiles([...e.target.files]);
-pdfFileInput.onchange=e=>addPdfFiles([...e.target.files]);
-$('#pdfClear').onclick=()=>{pdfPages=[];pdfBlob=null;renderPdfPages();renderPdfEditor();$('#pdfResult').classList.add('hidden');$('#pdfEditor').classList.add('hidden');};
-
-async function fileToPdfPage(file){
- let bitmap=null,url=null;
- try{
-  if('createImageBitmap' in window){
-   try{ bitmap=await createImageBitmap(file,{imageOrientation:'from-image',resizeWidth:2400,resizeHeight:2400,resizeQuality:'high'}); }
-   catch(e){ bitmap=null; }
-  }
-  if(!bitmap){
-   url=URL.createObjectURL(file);
-   bitmap=await new Promise((resolve,reject)=>{const img=new Image();img.onload=()=>resolve(img);img.onerror=reject;img.src=url;});
-  }
-  const w=bitmap.width,h=bitmap.height,scale=Math.min(1,2400/Math.max(w,h));
-  const c=document.createElement('canvas'); c.width=Math.max(1,Math.round(w*scale)); c.height=Math.max(1,Math.round(h*scale));
-  const cctx=c.getContext('2d',{willReadFrequently:true}); cctx.imageSmoothingEnabled=true; cctx.imageSmoothingQuality='high';
-  cctx.fillStyle='#fff'; cctx.fillRect(0,0,c.width,c.height); cctx.drawImage(bitmap,0,0,c.width,c.height);
-  return {data:c.toDataURL('image/jpeg',0.9),width:c.width,height:c.height,name:file.name||'Bild'};
- }finally{if(bitmap?.close) bitmap.close(); if(url) URL.revokeObjectURL(url);}
-}
-async function addPdfFiles(files){
- if(!files.length)return;
- $('#pdfMake').disabled=true; $('#pdfMake').textContent='⏳ Wird vorbereitet…';
- let added=0;
- for(const file of files){
-  if(!file.type.startsWith('image/') && !/\.(jpe?g|png|webp|heic|heif)$/i.test(file.name||'')) continue;
-  try{const page=await fileToPdfPage(file); pdfPages.push(page); added++;}
-  catch(e){console.error(e);toast('Datei konnte nicht verarbeitet werden: '+(file.name||'Bild'));}
- }
- $('#pdfMake').disabled=false; $('#pdfMake').textContent='📄 PDF erstellen';
- renderPdfPages();
- pdfPhotoInput.value=''; pdfGalleryInput.value=''; pdfFileInput.value='';
- if(added) toast(added+' Datei(en) hinzugefügt ✓');
-}
-function renderPdfPages(){
- const root=$('#pdfPages');
- root.innerHTML=pdfPages.map((p,i)=>`<div style="position:relative;background:#fff;border-radius:10px;overflow:hidden;border:1px solid #dbe2ea"><img src="${p.data}" style="display:block;width:100%;aspect-ratio:3/4;object-fit:contain;background:#f4f6f8"><button data-pdf-remove="${i}" style="position:absolute;right:4px;top:4px;border:0;border-radius:999px;background:#111;color:#fff;width:28px;height:28px">✕</button><div style="font-size:11px;text-align:center;padding:4px">Seite ${i+1}</div></div>`).join('');
- root.querySelectorAll('[data-pdf-remove]').forEach(b=>b.onclick=()=>{pdfPages.splice(+b.dataset.pdfRemove,1);pdfBlob=null;$('#pdfResult').classList.add('hidden');renderPdfPages();});
- $('#pdfClear').classList.toggle('hidden',pdfPages.length===0); $('#pdfMake').classList.toggle('hidden',pdfPages.length===0);
-}
-function b64ToBytes(b64){const raw=atob(b64.split(',')[1]||b64);const a=new Uint8Array(raw.length);for(let i=0;i<raw.length;i++)a[i]=raw.charCodeAt(i);return a;}
-function asciiBytes(s){return new TextEncoder().encode(s);}
-function concatBytes(parts){let n=0;for(const p of parts)n+=p.length;const out=new Uint8Array(n);let o=0;for(const p of parts){out.set(p,o);o+=p.length;}return out;}
-function makeSimpleJpegPdf(pages){
- const PW=595.28,PH=841.89,M=18, objs=[];
- // object 1 catalog, 2 pages; page/image/content objects start at 3
- const pageIds=[], contentIds=[], imageIds=[]; let id=3;
- for(let i=0;i<pages.length;i++){pageIds.push(id++);contentIds.push(id++);imageIds.push(id++);}
- const kids=pageIds.map(x=>x+' 0 R').join(' ');
- objs[1]=asciiBytes('<< /Type /Catalog /Pages 2 0 R >>');
- objs[2]=asciiBytes(`<< /Type /Pages /Kids [${kids}] /Count ${pages.length} >>`);
- for(let i=0;i<pages.length;i++){
-  const p=pages[i], img=b64ToBytes(p.data), iw=p.width, ih=p.height;
-  const landscape=iw>ih, pw=landscape?PH:PW, ph=landscape?PW:PH;
-  const scale=Math.min((pw-2*M)/iw,(ph-2*M)/ih), w=iw*scale,h=ih*scale,x=(pw-w)/2,y=(ph-h)/2;
-  objs[pageIds[i]]=asciiBytes(`<< /Type /Page /Parent 2 0 R /MediaBox [0 0 ${pw.toFixed(2)} ${ph.toFixed(2)}] /Resources << /XObject << /Im${i+1} ${imageIds[i]} 0 R >> >> /Contents ${contentIds[i]} 0 R >>`);
-  const stream=`q\n${w.toFixed(3)} 0 0 ${h.toFixed(3)} ${x.toFixed(3)} ${(ph-y-h).toFixed(3)} cm\n/Im${i+1} Do\nQ\n`;
-  const sb=asciiBytes(stream); objs[contentIds[i]]=concatBytes([asciiBytes(`<< /Length ${sb.length} >>\nstream\n`),sb,asciiBytes('endstream')]);
-  objs[imageIds[i]]=concatBytes([asciiBytes(`<< /Type /XObject /Subtype /Image /Width ${iw} /Height ${ih} /ColorSpace /DeviceRGB /BitsPerComponent 8 /Filter /DCTDecode /Length ${img.length} >>\nstream\n`),img,asciiBytes('\nendstream')]);
- }
- const chunks=[asciiBytes('%PDF-1.3\n%\xFF\xFF\xFF\xFF\n')]; const offsets=new Array(objs.length).fill(0); let pos=chunks[0].length;
- for(let i=1;i<objs.length;i++){const head=asciiBytes(`${i} 0 obj\n`),tail=asciiBytes('\nendobj\n');offsets[i]=pos;chunks.push(head,objs[i],tail);pos+=head.length+objs[i].length+tail.length;}
- const xrefPos=pos, xref=['xref',`0 ${objs.length}`,'0000000000 65535 f ']; for(let i=1;i<objs.length;i++)xref.push(String(offsets[i]).padStart(10,'0')+' 00000 n ');
- const trailer=`trailer\n<< /Size ${objs.length} /Root 1 0 R >>\nstartxref\n${xrefPos}\n%%EOF`;
- chunks.push(asciiBytes(xref.join('\n')+'\n'+trailer)); return new Blob([concatBytes(chunks)],{type:'application/pdf'});
-}
-$('#pdfMake').onclick=async()=>{
- if(!pdfPages.length)return;
- try{ pdfBlob=makeSimpleJpegPdf(pdfPages); $('#pdfResult').classList.remove('hidden'); toast('PDF mit '+pdfPages.length+' Seite(n) erstellt ✓'); }
- catch(e){console.error(e);toast('PDF-Fehler: '+(e?.message||'unbekannt'));}
-};
-$('#pdfDownload').onclick=()=>{
- if(!pdfBlob)return; const url=URL.createObjectURL(pdfBlob); const a=document.createElement('a'); a.href=url; a.download='scanapp-dokument.pdf'; document.body.appendChild(a); a.click(); a.remove(); setTimeout(()=>URL.revokeObjectURL(url),10000);
-};
-$('#pdfShare').onclick=async()=>{
- if(!pdfBlob)return;
- try{
-  const file=new File([pdfBlob],'scanapp-dokument.pdf',{type:'application/pdf'});
-  if(navigator.share && (!navigator.canShare || navigator.canShare({files:[file]}))){await navigator.share({files:[file],title:'FUXLShop Dokument'});return;}
-  const url=URL.createObjectURL(pdfBlob); window.open(url,'_blank'); setTimeout(()=>URL.revokeObjectURL(url),60000); toast('PDF geöffnet – auf dem iPhone über Teilen sichern.');
- }catch(e){ if(e?.name!=='AbortError') toast('Teilen konnte nicht gestartet werden.'); }
-};
-
 /* Werbebanner: Text hier im Code ändern für neue Aktionen; bei geändertem Text erscheint er auch für Nutzer, die den alten schon geschlossen hatten */
 (function(){
   const text=$('#promoBannerText').textContent.trim();
@@ -1449,7 +1320,6 @@ window.addEventListener('load',()=>{
  setTimeout(()=>{ if($('#scanner').classList.contains('active')) { $('#scanHint').textContent='Bereit. Tippe auf „Live-Scan starten“. Für iPhone: HTTPS verwenden.'; } },250);
  const missing=[];
  if(!window.jsQR) missing.push('Scan');
- if(!window.jspdf) missing.push('PDF');
  if(missing.length){
   $('#scanHint').innerHTML='⚠️ '+missing.join(' & ')+'-Bibliothek konnte nicht geladen werden (Netzwerkproblem). <button id="reloadLibBtn" style="margin-left:6px;padding:4px 10px;border:0;border-radius:8px;background:#2563eb;color:#fff;font-weight:700">🔄 Neu laden</button>';
   const btn=document.getElementById('reloadLibBtn'); if(btn) btn.onclick=()=>location.reload();
