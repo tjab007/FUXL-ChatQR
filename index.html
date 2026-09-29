@@ -249,7 +249,7 @@ nav button.active{color:var(--accent);background:var(--soft)}
       <input class="hidden" type="file" id="profilePhotoInput" accept="image/*">
       <div class="field" style="margin:0 0 10px"><label>Mein Anzeigename</label><input id="myDisplayName" placeholder="z. B. Max"></div>
       <div class="field" style="margin:0 0 10px"><label>Meine Telefonnummer (optional, für eine stabile Kontakt-ID)</label><input id="myPhoneNumber" type="tel" inputmode="tel" autocomplete="tel" placeholder="z. B. +49 170 1234567"></div>
-      <div class="badge">Meine FUXLShop-ID / Kontakt-ID</div>
+      <div class="badge">Meine FUXLShop-ID (4-stellig) / Kontakt-ID</div>
       <div class="chat-id-row" style="margin-top:8px"><input id="myChatId" readonly value="Verbinde…"><button class="btn secondary" id="copyMyChatId">📋</button></div>
       <div class="chat-status" id="chatConnectionStatus">⏳ Verbinde mit Chat-Dienst…</div>
       <button class="btn secondary hidden" id="chatRetryBtn" style="margin-top:8px">🔄 Erneut verbinden</button>
@@ -415,6 +415,37 @@ $('#historySearch').oninput=renderHistory;
 $('#clearHistory').onclick=()=>{
   if(confirm('Gesamten Verlauf löschen?')){saveHistory([]); renderHistory(); renderFav(); toast('Verlauf gelöscht');}
 };
+/* Stabile 4-stellige FUXLShop-ID
+   Die ID wird einmal pro Browser/Gerät erzeugt und danach in localStorage behalten.
+   Eine Telefonnummer ist nur ein Kontaktmerkmal und ersetzt die Peer-ID nicht. */
+function normalizePhoneNumber(v){
+  let s=String(v||'').trim().replace(/[^\d+]/g,'');
+  if(s.startsWith('00')) s='+'+s.slice(2);
+  return s;
+}
+function makeStableFourDigitId(){
+  const old=localStorage.getItem('scanapp_peer_stable_id')||'';
+  if(/^\d{4}$/.test(old)) return old;
+  let n;
+  try{ n=crypto.getRandomValues(new Uint32Array(1))[0] % 10000; }
+  catch{ n=Math.floor(Math.random()*10000); }
+  const id=String(n).padStart(4,'0');
+  localStorage.setItem('scanapp_peer_stable_id',id);
+  return id;
+}
+function currentPreferredPeerId(){ return makeStableFourDigitId(); }
+function targetToPeerId(raw){
+  const value=String(raw||'').trim();
+  if(!value) return '';
+  if(/^\d{4}$/.test(value)) return value;
+  const phone=normalizePhoneNumber(value);
+  if(phone && phone.length>=7){
+    const hit=loadChatIds().find(c=>normalizePhoneNumber(c.phone)===phone);
+    return hit?.id||'';
+  }
+  const hit=loadChatIds().find(c=>c.id===value);
+  return hit?.id||value;
+}
 /* FUXLShop Chat + WebRTC via PeerJS */
 let peer=null, myPeerId='', chatConn=null, activePeer='', pendingCall=null, activeCall=null;
 let localCallStream=null, remoteCallStream=null, callStartedAt=0, callTimerHandle=null, callMode='audio', cameraFacing='user';
@@ -762,7 +793,7 @@ const phoneNumberInput=$('#myPhoneNumber');
 displayNameInput.value=localStorage.getItem('scanapp_display_name')||'';
 phoneNumberInput.value=localStorage.getItem('scanapp_phone_number')||'';
 displayNameInput.addEventListener('change',()=>{localStorage.setItem('scanapp_display_name',displayNameInput.value.trim());renderMyAvatar();});
-phoneNumberInput.addEventListener('change',()=>{const n=normalizePhoneNumber(phoneNumberInput.value);localStorage.setItem('scanapp_phone_number',n);localStorage.removeItem('scanapp_peer_stable_id');if(peer&&!peer.destroyed){try{peer.destroy()}catch{}myPeerId='';}setTimeout(initPeer,250);toast('Telefonnummer gespeichert – neue stabile Kontakt-ID wird verbunden.');});
+phoneNumberInput.addEventListener('change',()=>{const n=normalizePhoneNumber(phoneNumberInput.value);localStorage.setItem('scanapp_phone_number',n);toast('Telefonnummer gespeichert ✓ Deine 4-stellige FUXLShop-ID bleibt unverändert.');});
 function myDisplayName(){return (localStorage.getItem('scanapp_display_name')||'').trim();}
 
 /* Profilbild */
